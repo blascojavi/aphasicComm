@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">proyectoJavierBlasco</string>
+    <string name="labelHome">Home - AphasicCom</string>
+    <string name="labelConfig">Configuración - AphasicCom</string>
+    <string name="textDictionary">Dictionary</string>
+    <string name="labelHouse">House</string>
+    <string name="labelPrueba">label Test</string>
+    <string name="fastAccess">Fast Access</string>
+    <string name="espanol">Spanish</string>
+    <string name="name_user" translatable="false">Name</string>
+    <string name="tagName">Your Name</string>
+    <string name="tagLanguage">Your Language</string>
+    <string name="tagVoice">Select Voice</string>
+    <string name="buttonImage">Change image</string>
+    <string name="idioma_espanol" translatable="false">Español</string>
+    <string name="idioma_ingles" translatable="false">Inglés</string>
+
+
+
+</resources>

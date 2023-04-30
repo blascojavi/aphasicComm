@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">aphasicComm</string>
+    <string name="labelHome">HomeES - AphasicCom</string>
+    <string name="labelConfig">ConfiguraciónES - AphasicCom</string>
+    <string name="textDictionary">Diccionario</string>
+    <string name="labelHouse">Casa</string>
+    <string name="labelPrueba">etiqueta Prueba</string>
+    <string name="fastAccess">Acceso Rapido</string>
+    <string name="espanol">Español</string>
+    <string name="tagName">Nombre</string>
+    <string name="tagLanguage">Idioma</string>
+    <string name="tagVoice">Selecciona Voz</string>
+    <string name="buttonImage">Cambiar imagen</string>
+
+</resources>
