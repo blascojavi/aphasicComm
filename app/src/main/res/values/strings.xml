@@ -14,6 +14,9 @@
     <string name="buttonImage">Change image</string>
     <string name="idioma_espanol" translatable="false">Español</string>
     <string name="idioma_ingles" translatable="false">Inglés</string>
+    <string name="select_action" translatable="false">Select Action</string>
+    <string name="select_photo_gallery" translatable="false">Select Photo Gallery</string>
+    <string name="capture_photo" translatable="false">Capture Photo</string>
 
 
 

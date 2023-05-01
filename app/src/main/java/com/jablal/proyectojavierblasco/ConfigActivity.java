@@ -1,20 +1,14 @@
 package com.jablal.proyectojavierblasco;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,38 +19,24 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.Glide;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class ConfigActivity extends AppCompatActivity {
     private Spinner spinner;
-    private String idiomaSeleccionadoAnteriormente = "";
-    private String idiomaActual = "";
-    private int selectedIdiomaIndex = 0;
     private AutoCompleteTextView textViewNameUser;
     private TextView textViewUser;
     public String newName = "";
     SharedPreferences sharedPref;
-    private static final int REQUEST_CAMERA = 1;
-    private static final int SELECT_FILE = 2;
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_IMAGE_PICK = 2;
-    private ImageView imageView;
-    private ImageView imageView2;
-    private String imagePath;
-    public static final int GALLERY_REQUEST_CODE = 1001;
-    public static final int CAMERA_REQUEST_CODE = 1002;
-    private static final int REQUEST_IMAGE_GALLERY = 1001;
-
-
 
 
 
@@ -67,7 +47,6 @@ public class ConfigActivity extends AppCompatActivity {
         setContentView(R.layout.activity_config);
         textViewNameUser = findViewById(R.id.textViewNameUser);
         textViewUser = findViewById(R.id.textViewUser);
-        imageView2 = findViewById(R.id.imageView2);
 
 
         ImageButton boton = findViewById(R.id.imageButtonHome2);
@@ -78,10 +57,10 @@ public class ConfigActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
+            //indicamos la imagen por defecto del usuario
         ImageView imageView2 = findViewById(R.id.imageView2);
-        imageView2.setImageResource(R.drawable.femaleyoung);
+        imageView2.setImageResource(R.drawable.image_user);
+
 
 
         // Inicializar sharedPref dentro del método onCreate()
@@ -159,34 +138,24 @@ public class ConfigActivity extends AppCompatActivity {
         textViewNameUser.setText(nameUser);
         textViewUser.setText(nameUser);
 
+        /////
 
 
 
 
-        Button buttonTakePicture = findViewById(R.id.button_take_picture);
-        buttonTakePicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPictureDialog();
-            }
-        });
-
-// Lee la ruta de la imagen almacenada
-        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        imagePath = prefs.getString("image_path", null);
-
-// Establece la imagen en el ImageView si la ruta existe
-        if (imagePath != null) {
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            imageView2.setImageBitmap(bitmap);
-        }
-
-        String imagePath = prefs.getString("image_path", null);
-        if (imagePath != null) {
-            Glide.with(this).load(new File(imagePath)).into(imageView2);
-        }
 
 
+
+
+
+
+
+
+
+
+
+
+        /////
 
     }
 
@@ -222,122 +191,29 @@ public class ConfigActivity extends AppCompatActivity {
     }
 
 
-@Override
+    @Override
     protected  void onPause() {
         super.onPause();
-    SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences.Editor editor = sharedPref.edit();
 
-    String nameUser = textViewNameUser.getText().toString();
-    editor.putString("name_user", nameUser);
-    editor.apply();
+        String nameUser = textViewNameUser.getText().toString();
+        editor.putString("name_user", nameUser);
+        editor.apply();
 
 
-}
+    }
 
-@Override
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 
-    SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPref.edit();
-    String nameUser = textViewNameUser.getText().toString();
-    editor.putString("name_user", nameUser);
-    editor.apply();
+        SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String nameUser = textViewNameUser.getText().toString();
+        editor.putString("name_user", nameUser);
+        editor.apply();
 
-}
-
-    private void showPictureDialog() {
-        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
-        pictureDialog.setTitle("Selecciona la acción");
-        String[] pictureDialogItems = {
-                "Tomar foto",
-                "Seleccionar de la galería"};
-        pictureDialog.setItems(pictureDialogItems,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case 0:
-                                takePicture();
-                                break;
-                            case 1:
-                                choosePicture();
-                                break;
-                        }
-                    }
-                });
-        pictureDialog.show();
     }
-
-    private void takePicture() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, REQUEST_CAMERA);
-    }
-
-    private void choosePicture() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, SELECT_FILE);
-    }
-
-
-
-    private static final int REQUEST_GALLERY_IMAGE = 100;
-
-    private void pickImageFromGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, REQUEST_GALLERY_IMAGE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE) {
-                // Se ha tomado una foto, establecer la imagen en el ImageView
-                Bundle extras = data.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
-                imageView2.setImageBitmap(imageBitmap);
-            } else if (requestCode == REQUEST_IMAGE_GALLERY) {
-                // Se ha seleccionado una imagen de la galería, establecer la imagen en el ImageView
-                Uri selectedImageUri = data.getData();
-                imageView2.setImageURI(selectedImageUri);
-            }
-        }
-    }
-
-
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case CAMERA_REQUEST_CODE: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permiso concedido para acceder a la cámara
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(intent, CAMERA_REQUEST_CODE);
-                } else {
-                    // Permiso denegado para acceder a la cámara
-                    Toast.makeText(ConfigActivity.this, "Permiso denegado para acceder a la cámara", Toast.LENGTH_SHORT).show();
-                }
-                return;
-            }
-            case GALLERY_REQUEST_CODE: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permiso concedido para acceder a la galería de imágenes
-                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(Intent.createChooser(intent, "Selecciona una imagen"), GALLERY_REQUEST_CODE);
-                } else {
-                    // Permiso denegado para acceder a la galería de imágenes
-                    Toast.makeText(ConfigActivity.this, "Permiso denegado para acceder a la galería de imágenes", Toast.LENGTH_SHORT).show();
-                }
-                return;
-            }
-        }
-    }
-
 
 
 
