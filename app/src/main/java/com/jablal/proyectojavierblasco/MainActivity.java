@@ -3,11 +3,16 @@ package com.jablal.proyectojavierblasco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer10,mediaPlayer11,mediaPlayer12;
     private ImageButton imageButtonHomeDormir,imageButtonComer,imageButtonTelevision,imageButtonNoMeGusta,imageButtonPintar,
             imageButtonTijeras,imageButtonBanyera,imageButtonWC,imageButtonFrio,imageButtonParaguas,imageButtonTriste,imageButtonAlegre;
-
+    String nombreAudio="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +28,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Obtiene la configuración actual
+        Configuration configuration = getResources().getConfiguration();
+        String idioma = configuration.getLocales().get(0).getLanguage();
+
         // Obtiene la referencia al botón de imagen de la vista
         imageButtonHomeDormir = findViewById(R.id.imageButtonHomeDormir);
-        // Crea un nuevo objeto MediaPlayer y carga el archivo de audio 'quiero_dormir_prueba' en él.
-        mediaPlayer = MediaPlayer.create(this, R.raw.quiero_dormir_prueba);
 
+            // Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudio;
+        if (idioma.equals("es")) {
+            nombreAudio = "es_quiero_dormir";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudio = "en_quiero_dormir";
+        }
 
+        // Obtiene el identificador del recurso de audio
+        int resourceId = getResources().getIdentifier(nombreAudio, "raw", getPackageName());
 
-
+        mediaPlayer = MediaPlayer.create(this, resourceId);
 
         // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonHomeDormir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer es nulo o no se ha inicializado correctamente
+                if (mediaPlayer == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
