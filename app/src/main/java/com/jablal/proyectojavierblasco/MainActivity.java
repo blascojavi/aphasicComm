@@ -72,16 +72,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Obtiene la referencia al botón de imagen de la vista
+// Obtiene la referencia al botón de imagen de la vista
         imageButtonComer = findViewById(R.id.imageButtonComer);
 
-        // Crea un nuevo objeto MediaPlayer y carga el archivo de audio 'tengohambre' en él.
-        mediaPlayer2 = MediaPlayer.create(this, R.raw.tengohambre);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioComer;
+        if (idioma.equals("es")) {
+            nombreAudioComer = "es_tengo_hambre";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioComer = "en_tengo_hambre";
+        }
 
-        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+// Obtiene el identificador del recurso de audio
+        int resourceIdComer = getResources().getIdentifier(nombreAudioComer, "raw", getPackageName());
+
+        mediaPlayer2 = MediaPlayer.create(this, resourceIdComer);
+
+// Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonComer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer2 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer2 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer2.isPlaying()) {
                     mediaPlayer2.pause();
@@ -92,16 +109,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonTelevision= findViewById(R.id.imageButtonTelevision);
 
-// Crea un nuevo objeto mediaPlayer3 y carga el archivo de audio 'television' en él.
-        mediaPlayer3 = MediaPlayer.create(this, R.raw.television);
+
+
+// Obtiene la referencia al botón de imagen de la vista
+        imageButtonTelevision = findViewById(R.id.imageButtonTelevision);
+
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioTelevision;
+        if (idioma.equals("es")) {
+            nombreAudioTelevision = "es_quiero_ver_la_television";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioTelevision = "en_quiero_ver_la_television";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdTelevision = getResources().getIdentifier(nombreAudioTelevision, "raw", getPackageName());
+
+        mediaPlayer3 = MediaPlayer.create(this, resourceIdTelevision);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonTelevision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer3 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer3 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer3.isPlaying()) {
                     mediaPlayer3.pause();
@@ -112,19 +149,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonNoMeGusta = findViewById(R.id.imageButtonNoMeGusta);
 
-// Crea un nuevo objeto mediaPlayer4 y carga el archivo de audio 'nomegusta' en él.
-        mediaPlayer4 = MediaPlayer.create(this,R.raw.nomegusta);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioNoMeGusta;
+        if (idioma.equals("es")) {
+            nombreAudioNoMeGusta = "es_no_me_gusta";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioNoMeGusta = "en_no_me_gusta";
+        }
 
-        //mediaPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.nomegusta);
+// Obtiene el identificador del recurso de audio
+        int resourceIdNoMeGusta = getResources().getIdentifier(nombreAudioNoMeGusta, "raw", getPackageName());
 
+        mediaPlayer4 = MediaPlayer.create(this, resourceIdNoMeGusta);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonNoMeGusta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer4 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer4 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer4.isPlaying()) {
                     mediaPlayer4.pause();
@@ -135,16 +188,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonPintar = findViewById(R.id.imageButtonPintar);
 
-// Crea un nuevo objeto mediaPlayer5 y carga el archivo de audio 'pintar' en él.
-        mediaPlayer5 = MediaPlayer.create(this, R.raw.pintar);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioPintar;
+        if (idioma.equals("es")) {
+            nombreAudioPintar = "es_quiero_pintar";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioPintar = "en_quiero_pintar";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdPintar = getResources().getIdentifier(nombreAudioPintar, "raw", getPackageName());
+
+        mediaPlayer5 = MediaPlayer.create(this, resourceIdPintar);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonPintar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer5 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer5 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer5.isPlaying()) {
                     mediaPlayer5.pause();
@@ -154,16 +225,37 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonTijeras = findViewById(R.id.imageButtonTijeras);
 
-// Crea un nuevo objeto mediaPlayer6 y carga el archivo de audio 'pintar' en él.
-        mediaPlayer6 = MediaPlayer.create(this, R.raw.cortar);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioTijeras;
+        if (idioma.equals("es")) {
+            nombreAudioTijeras = "es_ayudame_a_cortar";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioTijeras = "en_ayudame_a_cortar";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdTijeras = getResources().getIdentifier(nombreAudioTijeras, "raw", getPackageName());
+
+        mediaPlayer6 = MediaPlayer.create(this, resourceIdTijeras);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonTijeras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer6 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer6 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer6.isPlaying()) {
                     mediaPlayer6.pause();
@@ -174,16 +266,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonBanyera = findViewById(R.id.imageButtonBanyera);
 
-// Crea un nuevo objeto mediaPlayer7 y carga el archivo de audio 'quierobanyarme' en él.
-        mediaPlayer7 = MediaPlayer.create(this, R.raw.quierobanyarme);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioBanyera;
+        if (idioma.equals("es")) {
+            nombreAudioBanyera = "es_quiero_banarme";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioBanyera = "en_quiero_banarme";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdBanyera = getResources().getIdentifier(nombreAudioBanyera, "raw", getPackageName());
+
+        mediaPlayer7 = MediaPlayer.create(this, resourceIdBanyera);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonBanyera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer7 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer7 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer7.isPlaying()) {
                     mediaPlayer7.pause();
@@ -193,16 +304,35 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-// Obtiene la referencia al botón de imagen de la vista
+
+
+        // Obtiene la referencia al botón de imagen de la vista
         imageButtonWC = findViewById(R.id.imageButtonWC);
 
-// Crea un nuevo objeto mediaPlayer8 y carga el archivo de audio 'quieropipi' en él.
-        mediaPlayer8 = MediaPlayer.create(this, R.raw.quieropipi);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioWC;
+        if (idioma.equals("es")) {
+            nombreAudioWC = "es_quiero_hacer_pipi";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioWC = "en_quiero_hacer_pipi";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdWC = getResources().getIdentifier(nombreAudioWC, "raw", getPackageName());
+
+        mediaPlayer8 = MediaPlayer.create(this, resourceIdWC);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonWC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer8 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer8 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer8.isPlaying()) {
                     mediaPlayer8.pause();
@@ -213,16 +343,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         // Obtiene la referencia al botón de imagen de la vista
         imageButtonFrio = findViewById(R.id.imageButtonFrio);
 
-// Crea un nuevo objeto mediaPlayer8 y carga el archivo de audio 'frio' en él.
-        mediaPlayer9 = MediaPlayer.create(this, R.raw.frio);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioFrio;
+        if (idioma.equals("es")) {
+            nombreAudioFrio = "es_tengo_frio";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioFrio = "en_tengo_frio";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdFrio = getResources().getIdentifier(nombreAudioFrio, "raw", getPackageName());
+
+        mediaPlayer9 = MediaPlayer.create(this, resourceIdFrio);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonFrio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer9 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer9 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer9.isPlaying()) {
                     mediaPlayer9.pause();
@@ -233,16 +383,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonParaguas = findViewById(R.id.imageButtonParaguas);
 
-// Crea un nuevo objeto mediaPlayer10 y carga el archivo de audio 'paraguas' en él.
-        mediaPlayer10= MediaPlayer.create(this, R.raw.paraguas);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioParaguas;
+        if (idioma.equals("es")) {
+            nombreAudioParaguas = "es_coge_el_paraguas";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioParaguas = "en_coge_el_paraguas";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdParaguas = getResources().getIdentifier(nombreAudioParaguas, "raw", getPackageName());
+
+        mediaPlayer10 = MediaPlayer.create(this, resourceIdParaguas);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonParaguas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer10 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer10 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer10.isPlaying()) {
                     mediaPlayer10.pause();
@@ -257,13 +425,30 @@ public class MainActivity extends AppCompatActivity {
         // Obtiene la referencia al botón de imagen de la vista
         imageButtonTriste = findViewById(R.id.imageButtonTriste);
 
-// Crea un nuevo objeto mediaPlayer11 y carga el archivo de audio 'estoytriste' en él.
-        mediaPlayer11 = MediaPlayer.create(this, R.raw.estoytriste);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioTriste;
+        if (idioma.equals("es")) {
+            nombreAudioTriste = "es_estoy_triste";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioTriste = "en_estoy_triste";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdTriste = getResources().getIdentifier(nombreAudioTriste, "raw", getPackageName());
+
+        mediaPlayer11 = MediaPlayer.create(this, resourceIdTriste);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonTriste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer11 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer11 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer11.isPlaying()) {
                     mediaPlayer11.pause();
@@ -274,16 +459,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
 // Obtiene la referencia al botón de imagen de la vista
         imageButtonAlegre = findViewById(R.id.imageButtonAlegre);
 
-// Crea un nuevo objeto mediaPlayer12 y carga el archivo de audio 'estoyalegre' en él.
-        mediaPlayer12 = MediaPlayer.create(this, R.raw.estoyalegre);
+// Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudioAlegre;
+        if (idioma.equals("es")) {
+            nombreAudioAlegre = "es_estoy_alegre";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudioAlegre = "en_estoy_alegre";
+        }
+
+// Obtiene el identificador del recurso de audio
+        int resourceIdAlegre = getResources().getIdentifier(nombreAudioAlegre, "raw", getPackageName());
+
+        mediaPlayer12 = MediaPlayer.create(this, resourceIdAlegre);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonAlegre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Verifica si mediaPlayer12 es nulo o no se ha inicializado correctamente
+                if (mediaPlayer12 == null) {
+                    Toast.makeText(MainActivity.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Si el archivo de audio ya está reproduciéndose, lo pausa
                 if (mediaPlayer12.isPlaying()) {
                     mediaPlayer12.pause();
