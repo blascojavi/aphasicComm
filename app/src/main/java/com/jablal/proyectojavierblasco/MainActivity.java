@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton boton = findViewById(R.id.imageButtonHome);
 
         ImageButton boton2 = findViewById(R.id.imageButtonCasa);
+        ImageButton boton3 = findViewById(R.id.imageButtonLaunch);
 
 
 
@@ -547,6 +548,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+// Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        boton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un nuevo Intent para lanzar la actividad
+                Intent intent = new Intent(MainActivity.this, ActivityLaunch.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
 
 
     }
