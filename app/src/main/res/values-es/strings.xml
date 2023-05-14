@@ -5,6 +5,11 @@
     <string name="textDictionary">Diccionario</string>
     <string name="labelHouse">Casa</string>
     <string name="labelPrueba">etiqueta Prueba</string>
+    <string name="labelLunch">Comida</string>
+    <string name="labelSchool">Escuela</string>
+    <string name="labelWc">Baño</string>
+    <string name="labelStreet">Calle</string>
+    <string name="labelMind">Estados</string>
     <string name="fastAccess">Acceso Rapido</string>
     <string name="espanol">Español</string>
     <string name="tagName">Nombre</string>
@@ -17,4 +22,5 @@
     <string name="iconWc">Baño</string>
     <string name="iconStreet">Calle</string>
     <string name="iconStateOfMind">Estado</string>
+
 </resources>

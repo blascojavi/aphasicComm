@@ -17,7 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoJavierBlasco">
         <activity
-            android:name=".ActivityLaunch"
+            android:name=".ActivityMind"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityStreet"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityWc"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySchool"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLunch"
             android:exported="false" />
         <activity
             android:name=".MainActivityPrueba"

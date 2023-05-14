@@ -7,19 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class ActivityLaunch extends AppCompatActivity {
+public class ActivityWc extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();//ocultamos la barra superior, dejando mas pantalla libre
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+        setContentView(R.layout.activity_wc);
 
-        ImageButton boton = findViewById(R.id.imageButtonHome4);
+
+
+
+        ImageButton boton = findViewById(R.id.imageButtonHome6);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityLaunch.this, MainActivity.class);
+                Intent intent = new Intent(ActivityWc.this, MainActivity.class);
                 startActivity(intent);
             }
         });

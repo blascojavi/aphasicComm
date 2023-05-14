@@ -7,12 +7,8 @@ import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton boton2 = findViewById(R.id.imageButtonCasa);
         ImageButton boton3 = findViewById(R.id.imageButtonLaunch);
+        ImageButton boton4 = findViewById(R.id.imageButtonSchool);
+        ImageButton boton5 = findViewById(R.id.imageButtonWc);
+        ImageButton boton6 = findViewById(R.id.imageButtonStreet);
+        ImageButton boton7 = findViewById(R.id.imageButtonMind);
 
 
 
@@ -554,7 +554,53 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crea un nuevo Intent para lanzar la actividad
-                Intent intent = new Intent(MainActivity.this, ActivityLaunch.class);
+                Intent intent = new Intent(MainActivity.this, ActivityLunch.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+
+        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        boton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un nuevo Intent para lanzar la actividad
+                Intent intent = new Intent(MainActivity.this, ActivitySchool.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        boton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un nuevo Intent para lanzar la actividad
+                Intent intent = new Intent(MainActivity.this, ActivityWc.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        boton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un nuevo Intent para lanzar la actividad
+                Intent intent = new Intent(MainActivity.this, ActivityStreet.class);
+                // Inicia la actividad
+                startActivity(intent);
+            }
+        });
+
+
+        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        boton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Crea un nuevo Intent para lanzar la actividad
+                Intent intent = new Intent(MainActivity.this, ActivityMind.class);
                 // Inicia la actividad
                 startActivity(intent);
             }
