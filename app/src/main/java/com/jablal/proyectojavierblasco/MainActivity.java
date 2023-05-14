@@ -32,10 +32,39 @@ public class MainActivity extends AppCompatActivity {
         Configuration configuration = getResources().getConfiguration();
         String idioma = configuration.getLocales().get(0).getLanguage();
 
-        // Obtiene la referencia al botón de imagen de la vista
         imageButtonHomeDormir = findViewById(R.id.imageButtonHomeDormir);
 
-            // Comprueba el idioma y asigna el nombre del archivo correspondiente
+        imageButtonComer = findViewById(R.id.imageButtonComer);
+
+        imageButtonTelevision = findViewById(R.id.imageButtonTelevision);
+
+        imageButtonNoMeGusta = findViewById(R.id.imageButtonNoMeGusta);
+
+        imageButtonPintar = findViewById(R.id.imageButtonPintar);
+
+        imageButtonTijeras = findViewById(R.id.imageButtonTijeras);
+
+        imageButtonBanyera = findViewById(R.id.imageButtonBanyera);
+
+        imageButtonWC = findViewById(R.id.imageButtonWC);
+
+        imageButtonFrio = findViewById(R.id.imageButtonFrio);
+
+        imageButtonParaguas = findViewById(R.id.imageButtonParaguas);
+
+
+        imageButtonTriste = findViewById(R.id.imageButtonTriste);
+
+        imageButtonAlegre = findViewById(R.id.imageButtonAlegre);
+
+
+        ImageButton boton = findViewById(R.id.imageButtonHome);
+
+        ImageButton boton2 = findViewById(R.id.imageButtonCasa);
+
+
+
+        // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudio;
         if (idioma.equals("es")) {
             nombreAudio = "es_quiero_dormir";
@@ -72,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonComer = findViewById(R.id.imageButtonComer);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioComer;
@@ -112,8 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonTelevision = findViewById(R.id.imageButtonTelevision);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioTelevision;
@@ -151,8 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonNoMeGusta = findViewById(R.id.imageButtonNoMeGusta);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioNoMeGusta;
@@ -189,8 +215,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonPintar = findViewById(R.id.imageButtonPintar);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioPintar;
@@ -229,8 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonTijeras = findViewById(R.id.imageButtonTijeras);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioTijeras;
@@ -268,8 +292,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonBanyera = findViewById(R.id.imageButtonBanyera);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioBanyera;
@@ -306,8 +329,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // Obtiene la referencia al botón de imagen de la vista
-        imageButtonWC = findViewById(R.id.imageButtonWC);
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioWC;
@@ -346,8 +367,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Obtiene la referencia al botón de imagen de la vista
-        imageButtonFrio = findViewById(R.id.imageButtonFrio);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioFrio;
@@ -384,8 +404,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonParaguas = findViewById(R.id.imageButtonParaguas);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioParaguas;
@@ -422,8 +441,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // Obtiene la referencia al botón de imagen de la vista
-        imageButtonTriste = findViewById(R.id.imageButtonTriste);
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioTriste;
@@ -462,8 +479,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// Obtiene la referencia al botón de imagen de la vista
-        imageButtonAlegre = findViewById(R.id.imageButtonAlegre);
+
 
 // Comprueba el idioma y asigna el nombre del archivo correspondiente
         String nombreAudioAlegre;
@@ -505,8 +521,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Obtiene la referencia al botón de imagen de la vista
-        ImageButton boton = findViewById(R.id.imageButtonHome);
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         boton.setOnClickListener(new View.OnClickListener() {
@@ -520,8 +534,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // Obtiene la referencia al botón de imagen de la vista
-        ImageButton boton2 = findViewById(R.id.imageButtonCasa);
+
 
 // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         boton2.setOnClickListener(new View.OnClickListener() {
@@ -534,16 +547,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton botonPrueba = findViewById(R.id.imageButtonPruebaBorrarDespues);
-        botonPrueba.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Crea un nuevo Intent para lanzar la actividad ConfigActivity
-                Intent intent = new Intent(MainActivity.this, MainActivityPrueba.class);
-                // Inicia la actividad HouseActivity2
-                startActivity(intent);
-            }
-        });
+
 
     }
 
