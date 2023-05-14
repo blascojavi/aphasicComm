@@ -3,7 +3,9 @@ package com.jablal.proyectojavierblasco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -19,8 +21,7 @@ public class HouseActivity2 extends AppCompatActivity {
 
 
 
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private Bitmap imageBitmap;
+    private ImageButton imageButtonbanyo;
 
 
     @Override
@@ -40,40 +41,63 @@ public class HouseActivity2 extends AppCompatActivity {
             }
         });
 
+        // Obtiene la configuración actual
+        Configuration configuration = getResources().getConfiguration();
+        String idioma = configuration.getLocales().get(0).getLanguage();
 
-    }
+        imageButtonbanyo = findViewById(R.id.imageButtonbanyo);
 
-    public void capturePhoto(View view) {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
+
+
+
+        // Comprueba el idioma y asigna el nombre del archivo correspondiente
+        String nombreAudio;
+        if (idioma.equals("es")) {
+            nombreAudio = "es_quiero_hacer_pipi";
+        } else {
+            // Idioma por defecto (inglés)
+            nombreAudio = "en_quiero_hacer_pipi";
         }
+
+        // Obtiene el identificador del recurso de audio
+        int resourceId = getResources().getIdentifier(nombreAudio, "raw", getPackageName());
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, resourceId);
+
+        // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
+        imageButtonbanyo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Verifica si mediaPlayer es nulo o no se ha inicializado correctamente
+                if (mediaPlayer == null) {
+                    Toast.makeText(HouseActivity2.this, "Error al reproducir el audio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Si el archivo de audio ya está reproduciéndose, lo pausa
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                } else {
+                    // Si el archivo de audio no se está reproduciendo, lo inicia
+                    mediaPlayer.start();
+                }
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            imageBitmap = (Bitmap) extras.get("data");
-            saveImageToExternalStorage(imageBitmap);
-            Toast.makeText(this, "Foto capturada y guardada", Toast.LENGTH_SHORT).show();
-        }
-    }
 
-    private void saveImageToExternalStorage(Bitmap bitmap) {
-        String path = Environment.getExternalStorageDirectory().toString();
-        File file = new File(path, "photo.jpg");
-        FileOutputStream fos;
-        try {
-            fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+
+
 
 
 

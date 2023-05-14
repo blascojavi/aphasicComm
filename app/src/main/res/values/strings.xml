@@ -17,6 +17,12 @@
     <string name="select_action" translatable="false">Select Action</string>
     <string name="select_photo_gallery" translatable="false">Select Photo Gallery</string>
     <string name="capture_photo" translatable="false">Capture Photo</string>
+    <string name="iconHouse">House</string>
+    <string name="iconLaunch">Launch</string>
+    <string name="iconSchool">School</string>
+    <string name="iconWc">Wc</string>
+    <string name="iconStreet">Street</string>
+    <string name="iconStateOfMind">Mind</string>
 
 
 

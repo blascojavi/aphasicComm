@@ -11,5 +11,10 @@
     <string name="tagLanguage">Idioma</string>
     <string name="tagVoice">Selecciona Voz</string>
     <string name="buttonImage">Cambiar imagen</string>
-
+    <string name="iconHouse">Casa</string>
+    <string name="iconLaunch">Comida</string>
+    <string name="iconSchool">Escuela</string>
+    <string name="iconWc">Baño</string>
+    <string name="iconStreet">Calle</string>
+    <string name="iconStateOfMind">Estado</string>
 </resources>

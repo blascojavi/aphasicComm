@@ -11,5 +11,10 @@
     <string name="tagLanguage">Your Language</string>
     <string name="tagVoice">Select Voice</string>
     <string name="buttonImage">Change image</string>
-
+    <string name="iconHouse">House</string>
+    <string name="iconLaunch">Launch</string>
+    <string name="iconSchool">School</string>
+    <string name="iconWc">Wc</string>
+    <string name="iconStreet">Street</string>
+    <string name="iconStateOfMind">Mind</string>
 </resources>
