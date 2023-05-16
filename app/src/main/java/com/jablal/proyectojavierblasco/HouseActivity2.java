@@ -45,10 +45,9 @@ public class HouseActivity2 extends AppCompatActivity {
         Configuration configuration = getResources().getConfiguration();
         String idioma = configuration.getLocales().get(0).getLanguage();
 
+
+
         imageButtonbanyo = findViewById(R.id.imageButtonbanyo);
-
-
-
 
 
         // Comprueba el idioma y asigna el nombre del archivo correspondiente
