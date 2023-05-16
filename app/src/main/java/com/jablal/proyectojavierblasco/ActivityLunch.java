@@ -13,10 +13,10 @@ import android.widget.Toast;
 public class ActivityLunch extends AppCompatActivity {
 
 
-    private ImageButton imageButtonQuiero;
+     ImageButton imageButtonQuiero;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();//ocultamos la barra superior, dejando mas pantalla libre
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch);

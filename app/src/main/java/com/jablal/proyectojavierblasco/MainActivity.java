@@ -14,10 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer,mediaPlayer2,mediaPlayer3,mediaPlayer4,mediaPlayer5,mediaPlayer6, mediaPlayer7,mediaPlayer8,mediaPlayer9,
             mediaPlayer10,mediaPlayer11,mediaPlayer12;
-    private ImageButton imageButtonHomeDormir,imageButtonComer,imageButtonTelevision,imageButtonNoMeGusta,imageButtonPintar,
+     ImageButton imageButtonHomeDormir,imageButtonComer,imageButtonTelevision,imageButtonNoMeGusta,imageButtonPintar,
             imageButtonTijeras,imageButtonBanyera,imageButtonWC,imageButtonFrio,imageButtonParaguas,imageButtonTriste,imageButtonAlegre;
-    String nombreAudio="";
 
+    String nombreAudio="";
+    public ImageButton boton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();//ocultamos la barra superior, dejando mas pantalla libre
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         imageButtonAlegre = findViewById(R.id.imageButtonAlegre);
 
 
-        ImageButton boton = findViewById(R.id.imageButtonHome);
+         boton = findViewById(R.id.imageButtonHome);
 
         ImageButton boton2 = findViewById(R.id.imageButtonCasa);
         ImageButton boton3 = findViewById(R.id.imageButtonLaunch);
