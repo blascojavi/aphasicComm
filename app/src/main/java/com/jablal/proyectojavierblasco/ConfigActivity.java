@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Camera;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,8 +25,14 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -107,42 +114,51 @@ public class ConfigActivity extends AppCompatActivity {
             ((TextView) selectedItemView).setTextColor(Color.BLACK);
         }
 
-        String defaultValue = getResources().getString(R.string.name_user);
-        String nameUser = sharedPref.getString("name_user", defaultValue);
+        //String defaultValue = getResources().getString(R.string.name_user);
+       // String nameUser = sharedPref.getString("name_user", defaultValue);
+        String defaultValue = getResources().getString(R.string.name_user); // Obtener el valor predeterminado del nombre de usuario desde los recursos
+        String nameUser = sharedPref.getString("name_user", defaultValue); // Obtener el valor actual del nombre de usuario desde SharedPreferences
 
+        // Establece el nombre de usuario en el TextView textViewNameUser
         textViewNameUser.setText(nameUser);
         textViewUser.setText(nameUser);
 
 
 
+
+/////////////////////////////////
         Button buttonChangePicture = findViewById(R.id.button_change_picture);
+        ImageView imageView = findViewById(R.id.image_View);
+
         buttonChangePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<String> imageNames = Arrays.asList("female", "female_young_2", "men_young", "men", "female_young");
 
-                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                SharedPreferences sharedPreferences = getSharedPreferences("myPref", MODE_PRIVATE);
+                int currentPosition = sharedPreferences.getInt("position", 0);
 
-                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                currentPosition = (currentPosition + 1) % imageNames.size();
+                String nextImageName = imageNames.get(currentPosition);
 
+                int resourceId = getResources().getIdentifier(nextImageName, "drawable", getPackageName());
+                imageView.setImageResource(resourceId);
 
-
+                // Guardar la posición actual y el nombre de la imagen en SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("position", currentPosition);
+                editor.putString("image_user", nextImageName); // Guardar el nombre de la imagen en las preferencias compartidas
+                editor.apply();
 
             }
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
+
+
+
+
 
     private void cambiarIdioma(String codigoIdioma) {
         // Obtener la referencia a la configuración actual de la aplicación

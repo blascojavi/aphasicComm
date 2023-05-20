@@ -28,6 +28,8 @@
     <string name="iconWc">Wc</string>
     <string name="iconStreet">Street</string>
     <string name="iconStateOfMind">Mind</string>
+    <string name="image_user" translatable="false">men</string>
+
 
 
 </resources>
