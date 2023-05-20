@@ -64,7 +64,7 @@
         app:srcCompat="@drawable/galletas" />
 
     <ImageButton
-        android:id="@+id/imageButtonRopaSucia2"
+        android:id="@+id/imageButtonListoComer"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
