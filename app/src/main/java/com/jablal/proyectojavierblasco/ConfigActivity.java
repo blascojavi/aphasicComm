@@ -9,6 +9,7 @@ import android.graphics.Camera;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -45,15 +46,23 @@ public class ConfigActivity extends AppCompatActivity {
     public String newName = "";
     SharedPreferences sharedPref;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private int currentPosition = 0;
+    private List<String> imageNames = Arrays.asList("female", "female_young_2", "men_young", "men", "female_young");
+    private String nextImageName;
+    private SharedPreferences sharedPreferencesAvatar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
         textViewNameUser = findViewById(R.id.textViewNameUser);
         textViewUser = findViewById(R.id.textViewUser);
+        sharedPreferencesAvatar = getSharedPreferences("sharedPrefAvatar", MODE_PRIVATE);
+        nextImageName = sharedPreferencesAvatar.getString("name_user", imageNames.get(0));
+        Log.d("PRUEBA", nextImageName);
             ///
 
             ///
@@ -67,7 +76,10 @@ public class ConfigActivity extends AppCompatActivity {
         });
 
         ImageView imageView2 = findViewById(R.id.image_View);
-        imageView2.setImageResource(R.drawable.image_user);
+        //imageView2.setImageResource(R.drawable.image_user);
+
+        int resourceId = getResources().getIdentifier(nextImageName, "drawable", getPackageName());
+        imageView2.setImageResource(resourceId);
 
         sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
 
@@ -133,22 +145,22 @@ public class ConfigActivity extends AppCompatActivity {
         buttonChangePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> imageNames = Arrays.asList("female", "female_young_2", "men_young", "men", "female_young");
 
-                SharedPreferences sharedPreferences = getSharedPreferences("myPref", MODE_PRIVATE);
-                int currentPosition = sharedPreferences.getInt("position", 0);
+
+
+                // int currentPosition = sharedPreferences.getInt("position", 0);
 
                 currentPosition = (currentPosition + 1) % imageNames.size();
-                String nextImageName = imageNames.get(currentPosition);
 
+                nextImageName = imageNames.get(currentPosition);
                 int resourceId = getResources().getIdentifier(nextImageName, "drawable", getPackageName());
                 imageView.setImageResource(resourceId);
 
                 // Guardar la posición actual y el nombre de la imagen en SharedPreferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("position", currentPosition);
-                editor.putString("image_user", nextImageName); // Guardar el nombre de la imagen en las preferencias compartidas
-                editor.apply();
+                // SharedPreferences.Editor editor = sharedPreferencesAvatar.edit();
+                //editor.putInt("position", currentPosition);
+                //editor.putString("image_user", nextImageName); // Guardar el nombre de la imagen en las preferencias compartidas
+                //editor.apply();
 
             }
         });
@@ -190,27 +202,37 @@ public class ConfigActivity extends AppCompatActivity {
 
     @Override
     protected  void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = sharedPref.edit();
 
-        String nameUser = textViewNameUser.getText().toString();
-        editor.putString("name_user", nameUser);
+        // SharedPreferences.Editor editor = sharedPref.edit();
+
+        // String nameUser = textViewNameUser.getText().toString();
+        // editor.putString("name_user", nameUser);
+        // editor.apply();
+
+        SharedPreferences.Editor editor = sharedPreferencesAvatar.edit();
+        // String nameUser = textViewNameUser.getText().toString();
+        editor.putString("name_user", nextImageName);
         editor.apply();
+        String test = sharedPreferencesAvatar.getString("name_user", "test");
+        Log.d("onPause", test);
+        // super.onDestroy();
+        super.onPause();
 
 
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-
-        SharedPreferences sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        String nameUser = textViewNameUser.getText().toString();
-        editor.putString("name_user", nameUser);
+        SharedPreferences.Editor editor = sharedPreferencesAvatar.edit();
+        // String nameUser = textViewNameUser.getText().toString();
+        editor.putString("name_user", nextImageName);
         editor.apply();
-
+        String test = sharedPreferencesAvatar.getString("name_user", "test");
+        Log.d("onDestroy", test);
+        super.onDestroy();
     }
+
+
 
 /////
 
