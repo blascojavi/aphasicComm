@@ -216,6 +216,13 @@ public class ConfigActivity extends AppCompatActivity {
         String test = sharedPreferencesAvatar.getString("name_user", "test");
         Log.d("onPause", test);
         // super.onDestroy();
+
+        SharedPreferences.Editor editor2 = sharedPref.edit();
+        String nameUser = textViewNameUser.getText().toString();
+        editor2.putString("name_user", nameUser);
+        editor2.apply();
+
+
         super.onPause();
 
 
