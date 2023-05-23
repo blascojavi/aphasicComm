@@ -176,7 +176,7 @@
         app:srcCompat="@drawable/vamonosacasa" />
 
     <ImageButton
-        android:id="@+id/imageAgenda"
+        android:id="@+id/imageButtonAgenda"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -218,7 +218,7 @@
         app:srcCompat="@drawable/comedor" />
 
     <ImageButton
-        android:id="@+id/imageButtonBRotuladorPizarra"
+        android:id="@+id/imageButtonRotuladorPizarra"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -274,7 +274,7 @@
         app:srcCompat="@drawable/no_se_leer" />
 
     <ImageButton
-        android:id="@+id/imageButtonHoraDeComer"
+        android:id="@+id/imageButtonTijeras2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -285,7 +285,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.819"
-        app:srcCompat="@drawable/comerjuntos" />
+        app:srcCompat="@drawable/tijera" />
 
     <ImageButton
         android:id="@+id/imageButtonNoMeGusta2"
