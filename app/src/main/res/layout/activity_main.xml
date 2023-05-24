@@ -175,16 +175,17 @@
 
     <ImageButton
         android:id="@+id/imageButtonBanyera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:background="@null"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toEndOf="@+id/imageButtonPintar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637"
-        app:srcCompat="@drawable/banyera" />
+        app:layout_constraintVertical_bias="0.63"
+        app:srcCompat="@drawable/banyera_patos" />
 
     <ImageButton
         android:id="@+id/imageButtonHomeDormir"

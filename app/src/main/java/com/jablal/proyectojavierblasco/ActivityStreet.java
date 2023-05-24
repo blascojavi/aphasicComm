@@ -3,11 +3,18 @@ package com.jablal.proyectojavierblasco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class ActivityStreet extends AppCompatActivity {
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +23,9 @@ public class ActivityStreet extends AppCompatActivity {
         setContentView(R.layout.activity_street);
 
 
+        // Obtiene la configuración actual
+        Configuration configuration = getResources().getConfiguration();
+        String idioma = configuration.getLocales().get(0).getLanguage();
 
 
 
