@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/ludoteca" />
 
     <ImageButton
-        android:id="@+id/imageButtonLTranvia"
+        android:id="@+id/imageButtonTranvia"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -36,7 +36,7 @@
         app:srcCompat="@drawable/tranvia" />
 
     <ImageButton
-        android:id="@+id/imageButtonTengoHambre"
+        android:id="@+id/imageButtonQuieroComer2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -190,7 +190,7 @@
         app:srcCompat="@drawable/tener_hambre" />
 
     <ImageButton
-        android:id="@+id/imageButtonhospital"
+        android:id="@+id/imageButtonHospital"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@null"
@@ -225,10 +225,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintHorizontal_bias="0.644"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819"
+        app:layout_constraintVertical_bias="0.818"
         app:srcCompat="@drawable/restaurante" />
 
     <ImageButton
