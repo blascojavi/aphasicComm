@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">aphasicComm</string>
-    <string name="labelHome">HomeEN - AphasicCom</string>
-    <string name="labelConfig">ConfigEN - AphasicCom</string>
+    <string name="labelHome">Home - AphasicCom</string>
+    <string name="labelConfig">Configuration - AphasicCom</string>
     <string name="textDictionary">Dictionary</string>
-    <string name="labelHouse">House</string>
+    <string name="labelHouse">House - AphasicCom</string>
     <string name="labelPrueba">label Test</string>
-    <string name="labelLunch">Lunch</string>
-    <string name="labelSchool">School</string>
-    <string name="labelWc">WC</string>
-    <string name="labelStreet">Street</string>
-    <string name="labelMind">Mind</string>
+    <string name="labelLunch">Lunch - AphasicCom</string>
+    <string name="labelSchool">School - AphasicCom</string>
+    <string name="labelWc">WC - AphasicCom</string>
+    <string name="labelStreet">Street - AphasicCom</string>
+    <string name="labelMind">Mind - AphasicCom</string>
     <string name="fastAccess">Fast Access</string>
     <string name="espanol">Spanish</string>
     <string name="tagName">Your Name</string>
@@ -22,4 +22,6 @@
     <string name="iconWc">Wc</string>
     <string name="iconStreet">Street</string>
     <string name="iconStateOfMind">Mind</string>
+    <string name="buttonSave">Save</string>
+
 </resources>

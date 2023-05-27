@@ -7,8 +7,12 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Camera;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -36,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
+import java.util.regex.Pattern;
 
 
 public class ConfigActivity extends AppCompatActivity {
@@ -133,7 +137,7 @@ public class ConfigActivity extends AppCompatActivity {
 
         // Establece el nombre de usuario en el TextView textViewNameUser
         textViewNameUser.setText(nameUser);
-        textViewUser.setText(nameUser);
+      //  textViewUser.setText(nameUser);
 
 
 
@@ -164,6 +168,31 @@ public class ConfigActivity extends AppCompatActivity {
 
             }
         });
+
+
+        TextView textContact = findViewById(R.id.textContact);
+        String email = "blascojavi@hotmail.com";
+        String subject = "AphasicComm";
+        String emailLink = "mailto:" + email + "?subject=" + Uri.encode(subject, "UTF-8").toUpperCase();
+        SpannableString spannableString = new SpannableString("Contacto: " + email);
+        Linkify.TransformFilter transformFilter = (match, url) -> "";
+        Linkify.addLinks(spannableString, Pattern.compile(email), emailLink, null, transformFilter);
+        textContact.setText(spannableString);
+        textContact.setMovementMethod(LinkMovementMethod.getInstance());
+
+        TextView textViewLanguageSelected = findViewById(R.id.LanguageSelected);
+
+        // Obtener la configuración actual de la aplicación
+        Configuration config = getResources().getConfiguration();
+
+        // Obtener el objeto Locale del idioma actual
+        Locale currentLocale = config.locale;
+
+        // Obtener el nombre del idioma en uso
+        String currentLanguage = currentLocale.getDisplayName();
+
+        // Mostrar el nombre del idioma en el TextView
+        textViewLanguageSelected.setText(currentLanguage);
 
 
     }

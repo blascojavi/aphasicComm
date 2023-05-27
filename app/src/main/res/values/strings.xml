@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">proyectoJavierBlasco</string>
+    <string name="app_name">aphasicComm</string>
     <string name="labelHome">Home - AphasicCom</string>
     <string name="labelConfig">Configuración - AphasicCom</string>
     <string name="textDictionary">Dictionary</string>
@@ -29,6 +29,7 @@
     <string name="iconStreet">Street</string>
     <string name="iconStateOfMind">Mind</string>
     <string name="image_user" translatable="false">men</string>
+    <string name="buttonSave">Save</string>
 
 
 
