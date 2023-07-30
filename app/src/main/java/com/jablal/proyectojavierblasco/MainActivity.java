@@ -77,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Obtiene el identificador del recurso de audio
         int resourceId = getResources().getIdentifier(nombreAudio, "raw", getPackageName());
-
         mediaPlayer = MediaPlayer.create(this, resourceId);
-
         // Asigna un listener al botón de imagen para controlar su comportamiento cuando se hace clic en él
         imageButtonHomeDormir.setOnClickListener(new View.OnClickListener() {
             @Override
