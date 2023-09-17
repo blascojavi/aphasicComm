@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageButtonParaguas = findViewById(R.id.imageButtonParaguas);
 
-
         imageButtonTriste = findViewById(R.id.imageButtonTriste);
 
         imageButtonAlegre = findViewById(R.id.imageButtonAlegre);

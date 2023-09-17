@@ -36,61 +36,60 @@
         app:srcCompat="@drawable/home"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
     <Spinner
         android:id="@+id/spinner_idiomas"
-        android:spinnerMode="dropdown"
         android:layout_width="190dp"
         android:layout_height="26dp"
-        android:textColor="@color/black"
-        android:prompt="@string/espanol"
         android:dropDownItemStyle="@style/SpinnerItem"
+        android:prompt="@string/espanol"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.493" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#000000"
         android:text="@string/textDictionary"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="0.837"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
-
+        app:layout_constraintVertical_bias="0.359" />
 
     <Button
         android:id="@+id/buttonSelectedIdiom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="144dp"
         android:text="@string/buttonSave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toStartOf="@+id/spinner_idiomas"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_idiomas"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
 
     <ImageView
         android:id="@+id/image_View"
-        android:layout_width="156dp"
-        android:layout_height="178dp"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonHome2"
-        app:layout_constraintVertical_bias="0.27"
+        app:layout_constraintVertical_bias="0.22"
         tools:srcCompat="@string/image_user" />
 
     <TextView
@@ -116,7 +115,7 @@
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_View"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.888" />
 
     <TextView
         android:id="@+id/LanguageSelected"
@@ -127,10 +126,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spinner_idiomas"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toEndOf="@+id/textViewIdioma"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNameUser"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529" />
 
     <TextView
         android:id="@+id/textViewIdioma"
@@ -140,9 +139,10 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.276"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
         android:id="@+id/textViewName"
