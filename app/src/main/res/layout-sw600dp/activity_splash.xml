@@ -6,18 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+    <VideoView
+        android:id="@+id/videoView2"
+        android:layout_width="701dp"
+        android:layout_height="330dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="1278dp"
-        android:layout_height="802dp"
+        android:id="@+id/myLayout2"
+        android:layout_width="253dp"
+        android:layout_height="138dp"
         android:layout_gravity="center"
         app:adSize="MEDIUM_RECTANGLE"
         app:adUnitId="ca-app-pub-7311257203776178~4249959595"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.946"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintVertical_bias="0.916" />
 </androidx.constraintlayout.widget.ConstraintLayout>

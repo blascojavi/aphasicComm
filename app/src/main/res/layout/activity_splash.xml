@@ -8,16 +8,25 @@
 
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="841dp"
-        android:layout_height="418dp"
+        android:id="@+id/myLayout"
+        android:layout_width="119dp"
+        android:layout_height="75dp"
         android:layout_gravity="center"
         app:adSize="MEDIUM_RECTANGLE"
         app:adUnitId="ca-app-pub-7311257203776178~4249959595"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.952" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="480dp"
+        android:layout_height="193dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
